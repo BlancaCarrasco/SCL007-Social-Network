@@ -5,72 +5,142 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>red social de mascotas</title>
-  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  
- 
-  <link rel="stylesheet" type="text/css" media="screen" href="grid.css" />
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/grid.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css"/>
+  <title>Social PET</title>
+  </head>
 
 <body>
   
   <header class="header">
-    <div class="container logo-nav-container">
-    <a class="logo">
-      <span class="site-name">Social Pets</span><br>
-      <span class="site-des">Especialmente para tu mascota</span>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Acerca de</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav></div>
-
+    <div class="topnav" id="myTopnav">
+      <a href="#home">Home</a>
+      <a href="#aboutUs">Quiénes somos</a>
+      <a href="#contact">Contacto</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>  
   </header>
-  <div class="containerLogin">
-  <h1>hola bienvenido</h1>
-  <button type="button" onclick="google()">Ingresa con Google</button>
- 
-  <h2>Ingresa Tus Datos</h2>
-  
-    <p>Email</p>
-    <input id="mailtext" type="email">
-    <p>Contraseña</p>
-    <input id="passwordTextfield" type="password">
-    <button type="button" onclick="registrar()">Registrate</button>  
-    <button type="button" onclick="login()">Entrar</button>
-    <button type="button" onclick="logout()">Salir</button>
-    <input type="reset" name="Borrar" id="Borrar" value="Reset" class="boton">
-  </div>
-  
-  
-  <!-- <p>Email</p>
-    <input id="mailtext2" type="email">
-    <p>Contraseña</p>
-    <input id="passwordTextfield2" type="password">
-    
-    <div id="contenido"></div> -->
-<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-
+  <main id="root">
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="title">
+                        <h1>Social PET</h1>
+                    </div>
+                    <button id="facebook" class="facebookBtn"><i class="fa fa-facebook-square left"></i> Iniciar con Facebook</button><br>
+                    <button id="google" class="googleBtn"><i class="fa fa-google"></i> Iniciar con Google</button><br>
+                    <p style="text-align: left">Email: </p>
+                    <input type="email" id="emailSignIn" placeholder="Ingrese su Email"><br><br>
+                    <p style="text-align: left">Contraseña: </p>
+                    <input type="password" id="passwordSignIn" placeholder="Ingrese su Contraseña"><br><br>
+                    <button id="signIn" class="btn">Iniciar Sesión</button>
+                    <button id="register" class="btn">Registrar</button>
+                </div>
+            </div>
+            <div class="col-3"></div>
+           <div id="mimodal" class="modal">
+               <div id="flex" class="flex">
+                   <div class="contenido-modal">
+                       <div class="modal-header">
+                           <div class="row">
+                                <div class="col-11"><h1>SocialPET | Registro</h1></div>
+                                <div class="col-1"><span class="close" id="close">&times;</span></div>
+                           </div>
+                       </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-10"> <div id="owner" class="Owner">
+                                            <h1>Dueño de la Mascota</h1>
+                                             <p style="text-align: left">Usuario: </p>
+                                            <input type="text" id="nameUser"><br>
+                                            <p style="text-align: left">Email: </p>
+                                            <input type="email" id="emailRegister"><br>
+                                            <p style="text-align: left">Contraseña: </p>
+                                            <input type="password" id="passwordRegister"><br>
+                                            <p style="text-align: left">Confimar Contraseña: </p>
+                                            <input type="password" id="confirmPassword"><br>
+                                        </div>
+                                        </div>
+                               <div class="col-1"></div>
+                               <div id="pets" class="pets">
+                                    <h1>Registro de la Mascota</h1>
+                                    <div class="col-6">
+                                        <p style="text-align: left">Cantidad de Mascotas: </p>
+                                        <input type="number" name="" id="petsNumber">
+                                    </div>
+                                    <div class="col-6">
+                                            <p style="text-align: left">Tipo de Mascota: </p>
+                                            <select class="selectPet">
+                                                <option value="dog">Perro</option>
+                                                <option value="cat">Gato</option>
+                                                <option value="Rabbit">Conejo</option>
+                                                <option value="turtle">Tortuga</option>
+                                                <option value="other">tu Esposo</option>
+                                            </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="text-align: left">Sexo: </p>
+                                        <select class="selectSex">
+                                            <option value="female">Hembra</option>
+                                            <option value="male">Macho</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="text-align: left">Edad: </p>
+                                        <input type="number" id="age">
+                                    </div>
+                                    <div class="col-12">
+                                        <p style="text-align: left">Dato importante sobre tu mascota:</p>
+                                        <textarea></textarea>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="footer">
+                                <button id="next" class="btn">Siguiente</button>
+                             <button id="registerButton" class="register2">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<section>
+    <div id="logIn" class="logIn">
+        <button class="btn" id="signOut">Cerrar Sesion</button>
+    </div>
+</section>
+<footer></footer>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBA-CW33zo5aZMpSc8_IQLloGOCREcfANE",
-    authDomain: "mi-red-social-de-mascotas.firebaseapp.com",
-    databaseURL:"https://mi-red-social-de-mascotas.firebaseio.com",
-    projectId: "mi-red-social-de-mascotas",
-    storageBucket: "mi-red-social-de-mascotas.appspot.com",
-    messagingSenderId: "720811188126"
-    };
-  firebase.initializeApp(config);
-    
-  
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBoEkrJVmd5cNJQAd-drkN8_L5mRUIa-74",
+    authDomain: "pet-social-network-e35d0.firebaseapp.com",
+    databaseURL: "https://pet-social-network-e35d0.firebaseio.com",
+    projectId: "pet-social-network-e35d0",
+    storageBucket: "pet-social-network-e35d0.appspot.com",
+    messagingSenderId: "678447862491"
+};
+firebase.initializeApp(config);
+const auth = firebase.auth();
+const db =firebase.firestore();
 </script>
-  <script src="./auth/auth.js"></script>
-  <script src="./main.js"></script>
-  
+<script src="main.js" type="module"></script>
+<script src="auth/auth.js" type="module"></script>
 </body>
 
 </html>
