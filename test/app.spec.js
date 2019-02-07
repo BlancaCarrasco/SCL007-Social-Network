@@ -20,3 +20,14 @@ describe('login', () => {
   });
 });
 
+describe('login con google', () => {
+
+  it('debería ser una función', () => {
+    assert.equal(typeof loginConGoogle, 'function');
+  });
+
+  it('debería poder entrar mediante una cuenta de google', () => {
+    assert.equal(entrar.loginConGoogle(" ", ), "sesion iniciada");
+  });
+});
+
