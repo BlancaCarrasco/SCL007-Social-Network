@@ -86,4 +86,18 @@ Entonces: Tendrá toda la información necesaria para acudir a la misma.
 
 ## **Prototipo de Alta Fidelidad**
 
+https://www.figma.com/proto/0SqtWUZ9m3CG54HQfJv0WYsr/PET-SOCIAL-NETWORK?node-id=1%3A2&scaling=scale-down
+
+
 ## **Test de usabilidad**
+
+Luego de hacer testeos con usuarios tanto con el producto HTML como con el prototipo de alta fidelidad, notamos que eran necesarios hacer ciertos cambios para que la red social fuese más efectiva y atractiva para los usuarios:
+
+## 1: 
+Agregamos botones de "siguiente", ya que, al usuario se le dificultaba continuar la acción por no encontrar o entender el botón que habíamos propuesto.
+
+## 2 : 
+En la parte de la barra principal, decidimos colocar el "Quienes somos" y " Contacto", debido a que los usuarios comentaron que les parece de gran importancia contar con esa información al momento de registrarse en una página para así conocer un poco más al respecto.
+
+## 3:
+En cuanto al menú cambiamos la estética, porque los usuarios coincidieron al decir que les gustaría un menú más moderno y atractivo.

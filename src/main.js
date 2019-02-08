@@ -1,60 +1,33 @@
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-let modal = document.getElementById("mimodal");
-let flex = document.getElementById("flex");
-let openModal = document.getElementById("register");
-let closeModal = document.getElementById("close");
-let main = document.getElementById("root");
-let section = document.getElementById("logIn");
-
-openModal.addEventListener("click", () =>{
-modal.style.display = "block";
-});
-closeModal.addEventListener("click", () =>{
-modal.style.display = "none";
-});
-window.addEventListener("click", (e) =>{
-if (e.target === flex){
-modal.style.display = "none";
-}
-});
-
-let nextButton = document.getElementById("next");
-let pets =document.getElementById("pets");
-let owner = document.getElementById("owner");
-let registerButton = document.getElementById("registerButton");
-
-
-nextButton.addEventListener("click", () =>{
-pets.style.display = "block";
-owner.style.display = "none";
-nextButton.style.display = "none";
-registerButton.style.display = "block";
+document.addEventListener("DOMContentLoaded", event => {
+  const config = {
+    apiKey: "AIzaSyBoEkrJVmd5cNJQAd-drkN8_L5mRUIa-74",
+    authDomain: "pet-social-network-e35d0.firebaseapp.com",
+    databaseURL: "https://pet-social-network-e35d0.firebaseio.com",
+    projectId: "pet-social-network-e35d0",
+    storageBucket: "pet-social-network-e35d0.appspot.com",
+    messagingSenderId: "678447862491"
+};
+firebase.initializeApp(config);
+let database = firebase.database();
 })
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-import {checkAuthState, registerUser, loginUser} from './auth/auth.js';
-
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+import {checkAuthState, registerUser, loginUser, facebookLogin, googleLogin, logOut} from './auth/auth.js';
+import {savePosting, readPost} from './data/data.js'
 window.onload = () => {
   checkAuthState((user)=>{
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log ("existe usuario activo");
         if(user.emailVerified){
-          main.style.display = "none";
-          section.style.display = "block";
+          document.getElementById("root").style.display = "none";
+          document.getElementById("logIn").style.display = "block";
+          readPostFromDatabase();
         }
       modal.style.display = "none";    
       } else {
         console.log ("no existe usuario activo");  
-      main.style.display = "block";
-      section.style.display = "none";
+        document.getElementById("root").style.display = "block";
+        document.getElementById("logIn").style.display = "none";
       }
     });
    }); 
@@ -65,6 +38,7 @@ const register = () => {
   const email = document.getElementById("emailRegister").value; 
   const password = document.getElementById("passwordRegister").value; 
   registerUser(email, password);
+  //petData();
    }
    document.getElementById("registerButton").addEventListener("click", register);
 //:::::::::::::::::::::::::::::::::::::::::::LOGIN:::::::::::::::::::::::::::::::::::::::::::::
@@ -76,7 +50,47 @@ const loginUserWithEmailAndPassword = () => {
   };
   document.getElementById("signIn").addEventListener("click", loginUserWithEmailAndPassword);
 
-//se salio de control
+  document.getElementById("facebook").addEventListener("click", facebookLogin);
+
+  document.getElementById("google").addEventListener("click", googleLogin);
+
+  document.getElementById("signOut").addEventListener("click", logOut);
+  //::::::::::::::::::::::::::::::::::::REGISTER DATA::::::::::::::::::::::::::::::::::::::::::::
+ /* const petData = () => {
+    let petOwner = document.getElementById("petOwner").value;
+    let petName = document.getElementById("petName").value;
+    let petType = document.getElementById("petType").value;
+    let petSex = document.getElementById("petSex").value;
+    let petAge = document.getElementById("petAge").value;
+    let petInformation = document.getElementById("petInformation").value;
+    savePet(petOwner, petName, petType, petSex, petAge, petInformation);
+  }*/
+  //::::::::::::::::::::::::::::::::::::::POST::::::::::::::::::::::::::::::::::::::::::::::::
+  const posting = () => {
+    let postText = document.getElementById("postText").value;
+    let userName = firebase.auth().currentUser.email;
+    savePosting(postText, userName);
+  } 
+  document.getElementById("postBtn").addEventListener("click", posting);
+ 
+  const readPostFromDatabase = () => {
+    console.log("leyendo post");
+    readPost((post)=>
+    document.getElementById("postear").innerHTML = 
+    `
+    <div class="postBox">
+      <h4>Usuario: ${post.val().user}</h4>
+      <div id="postBox">
+        <p>${post.val().posting}</p>
+      </div>
+    </div>
+    `
+    + document.getElementById("postear").innerHTML 
+    )
+  }
+
+
+
 
 
 

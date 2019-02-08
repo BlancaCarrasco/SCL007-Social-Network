@@ -17,7 +17,7 @@
   
   <header class="header">
     <div class="topnav" id="myTopnav">
-      <a href="#home">Home</a>
+      <a href="#home">Inicio</a>
       <a href="#aboutUs">Quiénes somos</a>
       <a href="#contact">Contacto</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -40,6 +40,8 @@
                     <input type="email" id="emailSignIn" placeholder="Ingrese su Email"><br><br>
                     <p style="text-align: left">Contraseña: </p>
                     <input type="password" id="passwordSignIn" placeholder="Ingrese su Contraseña"><br><br>
+                    <p class="alerta" id="emailAlert">Email o Contraseña incorrecta</p>
+                    <p class="alerta" id="emptyAlert">Por favor complete el formulario</p>
                     <button id="signIn" class="btn">Iniciar Sesión</button>
                     <button id="register" class="btn">Registrar</button>
                 </div>
@@ -59,48 +61,58 @@
                                 <div class="row">
                                     <div class="col-1"></div>
                                     <div class="col-10"> <div id="owner" class="Owner">
-                                            <h1>Dueño de la Mascota</h1>
+                                        <form action="submit">   
+                                        <h1>Dueño de la Mascota</h1>
                                              <p style="text-align: left">Usuario: </p>
-                                            <input type="text" id="nameUser"><br>
+                                            <input type="text" id="petOwner"><br>
                                             <p style="text-align: left">Email: </p>
                                             <input type="email" id="emailRegister"><br>
                                             <p style="text-align: left">Contraseña: </p>
                                             <input type="password" id="passwordRegister"><br>
                                             <p style="text-align: left">Confimar Contraseña: </p>
                                             <input type="password" id="confirmPassword"><br>
+                                            <p class="alerta" id="passwordAlert">Contraseñas no coinciden</p>
+                                            <p class="alerta" id="completeAlert">Por favor complete el formulario</p>
+                                        </form> 
                                         </div>
                                         </div>
                                <div class="col-1"></div>
                                <div id="pets" class="pets">
                                     <h1>Registro de la Mascota</h1>
-                                    <div class="col-6">
-                                        <p style="text-align: left">Cantidad de Mascotas: </p>
-                                        <input type="number" name="" id="petsNumber">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="text-align: left">Nombre de la Mascota: </p>
+                                            <input type="text" name="" id="petName">
+                                        </div>
+                                        <div class="col-6">
+                                                <p style="text-align: left">Tipo de Mascota: </p>
+                                                <select class="selectPet" id="petType">
+                                                    <option value="dog">Perro</option>
+                                                    <option value="cat">Gato</option>
+                                                    <option value="Rabbit">Conejo</option>
+                                                    <option value="turtle">Tortuga</option>
+                                                    <option value="other">Otro</option>
+                                                </select>
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                            <p style="text-align: left">Tipo de Mascota: </p>
-                                            <select class="selectPet">
-                                                <option value="dog">Perro</option>
-                                                <option value="cat">Gato</option>
-                                                <option value="Rabbit">Conejo</option>
-                                                <option value="turtle">Tortuga</option>
-                                                <option value="other">tu Esposo</option>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="text-align: left">Sexo: </p>
+                                            <select class="selectSex" id="petSex">
+                                                <option value="female">Hembra</option>
+                                                <option value="male">Macho</option>
                                             </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="text-align: left">Edad: </p>
+                                            <input type="number" id="petAge">
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <p style="text-align: left">Sexo: </p>
-                                        <select class="selectSex">
-                                            <option value="female">Hembra</option>
-                                            <option value="male">Macho</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-6">
-                                        <p style="text-align: left">Edad: </p>
-                                        <input type="number" id="age">
-                                    </div>
-                                    <div class="col-12">
-                                        <p style="text-align: left">Dato importante sobre tu mascota:</p>
-                                        <textarea></textarea>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p style="text-align: left">Dato importante sobre tu mascota:</p>
+                                            <textarea id="petInformation"></textarea>
+                                        </div>
                                     </div>
                                </div>
                             </div>
@@ -119,27 +131,60 @@
 <section>
     <div id="logIn" class="logIn">
         <button class="btn" id="signOut">Cerrar Sesion</button>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <div class="welcome">
+                        <h1>Bienvenido a SocialPET</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-3">
+                    <div class="aside">
+                        <a href="#">Amigos</a>
+                        <a href="#">Veterinarios</a>
+                        <a href="#">Paseadores Caninos</a>
+                        <a href="#">Peluquerías para Mascotas</a>
+                        <a href="#">Eventos para mascotas</a>
+                    </div>
+                </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="post">
+                                    <p>
+                                        ¿Quieres hacer una Publicación?
+                                    </p>
+                                    <textarea id="postText" class="postText" placeholder="Escribe aquí lo que desees publicar..."></textarea>
+                                    <select>                    
+                                        <option value="public">Público</option>
+                                        <option value="private">Privado</option>
+                                    </select>                        
+                                    <button id="postBtn" class="btn">Publicar</button>
+                                </div>
+                            </div>
+                        </div>                       
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="postear" class="postear">
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+             </div>
+        </div>
 </section>
 <footer></footer>
 <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
-<script>
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBoEkrJVmd5cNJQAd-drkN8_L5mRUIa-74",
-    authDomain: "pet-social-network-e35d0.firebaseapp.com",
-    databaseURL: "https://pet-social-network-e35d0.firebaseio.com",
-    projectId: "pet-social-network-e35d0",
-    storageBucket: "pet-social-network-e35d0.appspot.com",
-    messagingSenderId: "678447862491"
-};
-firebase.initializeApp(config);
-const auth = firebase.auth();
-const db =firebase.firestore();
-</script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
 <script src="main.js" type="module"></script>
+<script src="validate.js"></script>
+<script src="responsive.js"></script>
 <script src="auth/auth.js" type="module"></script>
 </body>
 
