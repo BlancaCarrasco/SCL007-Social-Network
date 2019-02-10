@@ -1,12 +1,11 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: url(http://www.veterinariacharruas.com/wp-content/uploads/2014/07/Pet-care-site-Background.gif);
-  }
+    }
   
   .topnav {
     overflow: hidden;
-    background-color: #fdb455;
+    background-color: #40b4c4;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.384);
   }
   
@@ -22,69 +21,106 @@ body {
   
   .topnav a:hover {
     background-color: rgb(223, 242, 245);
-    color: black;
+    color: #40b4c4;
+    font-weight: bold;
   }
   
   .topnav .icon {
     display: none;
   }
+  .imageBack img{
+    width: 100%;
+    mix-blend-mode: lighten;
+    filter: grayscale(50%);
+  }
+  .welcomeText{
+    width: 100%;
+    text-align: center;
+  }
+  .welcomeText h1{
+    font-family: Acme;
+    color: #40b4c4;
+    font-size: 50px;
+  }
+  .welcomeText p{
+    font-size: 15px;
+    text-align: justify;
+  }
+  .welcomeText p b{
+    color: #40b4c4;
+  }
   .card{
-      text-align: center;
-      max-width: 100%;
-      height: 100%;
-      background: white;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.384); 
-      padding: 10px;
-      margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    height: 100%;
+    background: rgb(237, 247, 252);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.384); 
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #40b4c4;
+  }
+  .card a{
+    text-decoration: none;
+    color:#40b4c4;
+  }
+  .card a:hover{
+    font-weight: bold;
   }
   .card h1{
       font-family: Acme;
   }
+  .card p{
+    font-size: 15px;
+    color: gray;
+  }
   .title{
-      background: #fdb455;
+      background: #40b4c4;
+      border-radius: 10px;
       width: 100%;
       color: white;
   }
-  input{
+  .card input{
       width: 100%;
-      font-size: 15px;
+      font-size: 14px;
+      border-radius: 2px;
+      border: 1px solid #40b4c4;
+      margin: 10px;
   }
   .btn{
-      width: 30%;
+      width: 80%;
       margin: 10px;
-      border-radius: 5px;
-      border: 2px solid #fdb455;
-      background: white;
+      border-radius: 10px;
+      background: #40b4c4;
       padding: 5px;
       font-size: 15px;
+      color: white;
   }
   .btn:hover{
-      background:#fdb455;
-      color: white; 
+      background:rgba(255, 255, 255, 0.78);
+      color: rgb(23, 145, 167); 
       cursor: pointer;
       font-weight: bold;
   }
   .facebookBtn{
-    width: 80%;
+    width: 93%;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     background: #1d67ac;
     color: white;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px; 
   }
   .facebookBtn:hover{
     cursor: pointer; 
   }
   .googleBtn{
-    width: 80%;
+    width: 93%;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     background: #f02727;
     color: white;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px; 
   }
   .googleBtn:hover{
@@ -97,37 +133,38 @@ body {
     justify-content: space-between;
     align-items: center;
     }
-    .modal{
-      display: none;
-      position: fixed;
-      z-index: 1;
-      overflow: auto;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(128, 128, 128, 0.623)
-    }
-    .contenido-modal{
-      position: relative;
-      background-color: white;
-      margin: auto;
-      width: 50%;
-      box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
-      animation-name: modal;
-      animation-duration: 1s; 
-    }
-    .close{
-      color: red;
-      font-size: 40px;
-      font-weight: bold;
-    }
-    .close:hover{
-      text-decoration: none;
-      cursor: pointer;
-    }
+  .modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(128, 128, 128, 0.623)
+  }
+  .contenido-modal{
+    position: relative;
+    background-color: white;
+    margin: auto;
+    width: 50%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
+    animation-name: modal;
+    animation-duration: 1s; 
+  }
+  .close{
+    color: gray;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .close:hover{
+    text-decoration: none;
+    cursor: pointer;
+  }
     .modal-header{
-      background-color: #fdb455;
+      width: 100%;
+      background-color: #40b4c4;
       color: white;
       padding: 8px 16px;
       font-family: Acme;
@@ -137,36 +174,89 @@ body {
       text-align: right;
     }
     .modal-body{
-      padding: 20px 16px;
+      padding: 10px 6px;
     }
-    .register2{
-      display: none;
-      width: 30%;
-      border-radius: 5px;
-      border: 2px solid #fdb455;
-      background: white;
-      padding: 5px;
+    .owner{
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+    .owner h2{
+      color: gray;
+    }
+    .owner hr{
+      margin: 10px;
+    }
+    .owner input{
+      width: 100%;
+      border: 1px solid #40b4c4;
+      border-radius: 2px;
+      margin: 5px;
+    }
+    .owner p{
+      color: gray;
       font-size: 15px;
     }
-    .register2:hover{
-      background:#fdb455;
-      color: white; 
-      cursor: pointer;
-      font-weight: bold;
-  }
     .pets{
       display:none;
-    }
-    #number{
       width: 100%;
+      padding: 10px;
+      text-align: center;
     }
-.logIn{
-  display: none;
-}
+    .pets h2{
+      color: gray
+    }
+    .pets hr{
+      margin: 10px;
+    }
+    .pets select{
+      width: 100%;
+      background: white;
+      border: 1px solid #40b4c4;
+      border-radius: 2px;
+    }
+    .pets input{
+      width: 100%;
+      border: 1px solid #40b4c4;
+      border-radius: 2px;
+      margin: 5px;
+    }
+    .pets textarea{
+      width: 100%;
+      border: 1px solid #40b4c4;
+      border-radius: 2px;
+    }
+    .pets p{
+      color:gray;
+      font-size: 15px;
+    }
+    .pets a{
+      text-decoration: none;
+      color:#40b4c4;
+      font-size: 14px;
+    }
+    .pets a:hover{
+      font-weight: bold;
+    }
+    .register2{
+      width: 80%;
+      margin: 10px;
+      border-radius: 10px;
+      background: #40b4c4;
+      padding: 5px;
+      font-size: 15px;
+      color: white;
+    }
+    .register2:hover{
+      background:rgba(255, 255, 255, 0.78);
+      color: rgb(23, 145, 167); 
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .logIn{
+      display: none;
+    }
     select{
-      width: 100%;
-    }
-    textarea{
       width: 100%;
     }
     .alerta{
@@ -234,6 +324,9 @@ body {
       background: #fdb455;
       color: white;
     }
+    .horizontal{
+      display: none;
+    }
     @keyframes modal{
       from{
         bottom: -330px; 
@@ -265,15 +358,31 @@ body {
       text-align: left;
     }
     .contenido-modal{
-      width: 80%;
+      width: 95%;
     }
     .welcome{
       font-size: 20px;
     }
-  }
-  @media screen and (max-width: 900px) {
-   
-    .contenido-modal{
+    .horizontal{
+      width: 100%;
+      margin-top: 10px;
+      display: block;
+    }
+    .vertical{
+      display:none;
+      text-align: center;
+    }
+    .facebookBtn{
       width: 80%;
     }
+    .googleBtn{
+      width: 80%;
+    }
+    .imageBack{
+      display: none;
+    }
+    .texto{
+      display: none;
+    }
   }
+  

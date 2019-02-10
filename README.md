@@ -101,3 +101,7 @@ En la parte de la barra principal, decidimos colocar el "Quienes somos" y " Cont
 
 ## 3:
 En cuanto al menú cambiamos la estética, porque los usuarios coincidieron al decir que les gustaría un menú más moderno y atractivo.
+
+## 4: 
+
+En cuanto al menú desplegable, lo dejamos como un menú fijo, ya que, los usuarios comentaron que les gustaría tener las opciones del menú fijas y así ver al mismo tiempo su muro.

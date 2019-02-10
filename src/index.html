@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -26,63 +26,99 @@
     </div>  
   </header>
   <main id="root">
-    <div class="container">
+      <section class="indexPage">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="title">
-                        <h1>Social PET</h1>
-                    </div>
-                    <button id="facebook" class="facebookBtn"><i class="fa fa-facebook-square left"></i> Iniciar con Facebook</button><br>
-                    <button id="google" class="googleBtn"><i class="fa fa-google"></i> Iniciar con Google</button><br>
-                    <p style="text-align: left">Email: </p>
-                    <input type="email" id="emailSignIn" placeholder="Ingrese su Email"><br><br>
-                    <p style="text-align: left">Contraseña: </p>
-                    <input type="password" id="passwordSignIn" placeholder="Ingrese su Contraseña"><br><br>
-                    <p class="alerta" id="emailAlert">Email o Contraseña incorrecta</p>
-                    <p class="alerta" id="emptyAlert">Por favor complete el formulario</p>
-                    <button id="signIn" class="btn">Iniciar Sesión</button>
-                    <button id="register" class="btn">Registrar</button>
+            <div class="col-5">
+                <div class="imageBack">  
+                    <img src="/src/mascotas.jpg">            
                 </div>
             </div>
-            <div class="col-3"></div>
+            <div class="col-7">
+                <div class="welcomeText">
+                    <h1>Bienvenidos a SocialPET</h1>
+                    <div class="texto">
+                        <div class="row">
+                            <div class="col-6">
+                                    <p>SocialPet es mucho más que una red social para mascotas. Es todo un universo en torno al mundo de los perros, gatos, pájaros, hamsters, etc. <b>¡Ellos son lo primero!</b></p>
+                            </div>
+                            <div class="col-6">
+                                    <p>Además podrás encontrar <b>empresas y servicios profesionales</b> del sector de los animales de compañía, ayudar a otros animales que lo están pasando mal y mucho más.</p>
+                            </div>
+                        </div> 
+                    </div>                   
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="title">
+                            <h1>Social PET</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5-5">
+                            <div class="socialLink">
+                                <p>Entra con tu red social favorita...</p>
+                                <button id="facebook" class="facebookBtn"><i class="fa fa-facebook-square left"></i> Inicia sesión con Facebook</button><br>
+                                <button id="google" class="googleBtn"><i class="fa fa-google"></i> Inicia sesión con Google</button><br>
+                            </div>
+                            <hr class="horizontal">
+                        </div>
+                        <div class="col-1">
+                            <hr class="vertical" width="1" size="175">
+                        </div>
+                        <div class="col-5-5">
+                            <div class="login">
+                                <p>...o entra con tu correo y contraseña</p>                           
+                                <input type="email" id="emailSignIn" placeholder="Correo"><br>                           
+                                <input type="password" id="passwordSignIn" placeholder="Contraseña"><br>
+                                <h6 class="alerta" id="emailAlert">Email o Contraseña incorrecta</h6>
+                                <h6 class="alerta" id="emptyAlert">Por favor complete el formulario</h6>
+                                <button id="signIn" class="btn">Iniciar Sesión</button>
+                                <p>¿No tienes cuenta?</p>
+                                <a id="register" class="register" href="#">Registrate AQUÍ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <div class="container">
            <div id="mimodal" class="modal">
                <div id="flex" class="flex">
                    <div class="contenido-modal">
                        <div class="modal-header">
-                           <div class="row">
-                                <div class="col-11"><h1>SocialPET | Registro</h1></div>
-                                <div class="col-1"><span class="close" id="close">&times;</span></div>
-                           </div>
+                           <div><h1>Registro</h1></div>                            
+                            <!--<div class="spans"><span class="close" id="close">&times;</span></div> -->                           
                        </div>
                         <div class="modal-body">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-10"> <div id="owner" class="Owner">
-                                        <form action="submit">   
-                                        <h1>Dueño de la Mascota</h1>
-                                             <p style="text-align: left">Usuario: </p>
-                                            <input type="text" id="petOwner"><br>
-                                            <p style="text-align: left">Email: </p>
-                                            <input type="email" id="emailRegister"><br>
-                                            <p style="text-align: left">Contraseña: </p>
-                                            <input type="password" id="passwordRegister"><br>
-                                            <p style="text-align: left">Confimar Contraseña: </p>
-                                            <input type="password" id="confirmPassword"><br>
-                                            <p class="alerta" id="passwordAlert">Contraseñas no coinciden</p>
-                                            <p class="alerta" id="completeAlert">Por favor complete el formulario</p>
-                                        </form> 
+                                <div class="row">            
+                                    <div class="col-12"> 
+                                        <div id="owner" class="owner">
+                                                <h2>Dueño de la Mascota</h2>
+                                                <hr>
+                                                <p style="text-align: left">Nombre: </p>
+                                                <input type="text" id="petOwner"><br>
+                                                <p style="text-align: left">Correo: </p>
+                                                <input type="email" id="emailRegister"><br>
+                                                <p style="text-align: left">Contraseña: </p>
+                                                <input type="password" id="passwordRegister"><br>
+                                                <p style="text-align: left">Confimar Contraseña: </p>
+                                                <input type="password" id="confirmPassword"><br>
+                                                <h6 class="alerta" id="passwordAlert">Contraseñas no coinciden</h6>
+                                                <h6 class="alerta" id="completeAlert">Por favor complete el formulario</h6>
+                                                <button id="next" class="btn">Siguiente</button>
                                         </div>
-                                        </div>
-                               <div class="col-1"></div>
+                                    </div>                              
                                <div id="pets" class="pets">
-                                    <h1>Registro de la Mascota</h1>
+                                    <h2>Registro de la Mascota</h2>
+                                    <hr>
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="text-align: left">Nombre de la Mascota: </p>
-                                            <input type="text" name="" id="petName">
+                                            <input type="text" id="petName">
                                         </div>
                                         <div class="col-6">
                                                 <p style="text-align: left">Tipo de Mascota: </p>
@@ -101,6 +137,7 @@
                                             <select class="selectSex" id="petSex">
                                                 <option value="female">Hembra</option>
                                                 <option value="male">Macho</option>
+                                                <option value="unknow">Desconocido</option>
                                             </select>
                                         </div>
                                         <div class="col-6">
@@ -108,19 +145,19 @@
                                             <input type="number" id="petAge">
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row">                              
                                         <div class="col-12">
                                             <p style="text-align: left">Dato importante sobre tu mascota:</p>
                                             <textarea id="petInformation"></textarea>
+                                            <a href="#">¿Quieres agregar otra mascota?</a>
                                         </div>
                                     </div>
+                                    <button id="registerButton" class="register2">Registrar</button>
                                </div>
                             </div>
                         </div>
                         </div>
-                        <div class="footer">
-                                <button id="next" class="btn">Siguiente</button>
-                             <button id="registerButton" class="register2">Registrar</button>
+                        <div class="footer">  
                         </div>
                     </div>
                 </div>

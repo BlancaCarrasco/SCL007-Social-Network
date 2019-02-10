@@ -1,7 +1,8 @@
 //::::::::::::::::::::::::::::::::::::::FACEBOOK:::::::::::::::::::::::::::::::::::::::::::::::::::
 export const facebookLogin = () => {
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider)
+    firebase.auth().signInWithPopup(provider).then(function(){
+    })
   }
   //:::::::::::::::::::::::::::::::::::::::::::::GOOGLE::::::::::::::::::::::::::::::::::::::::::::
  export const googleLogin = () => {
@@ -62,6 +63,7 @@ export const loginUser = (emailFromUser, passwordFromUser) => {
   var user = firebase.auth().currentUser;
   user.sendEmailVerification().then(function() {
     console.log("enviando...")
+    alert("Enviando email de verificación")
   }).catch(function(error) {
     console.log(error);
   });

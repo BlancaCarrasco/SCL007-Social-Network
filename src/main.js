@@ -12,7 +12,7 @@ let database = firebase.database();
 })
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 import {checkAuthState, registerUser, loginUser, facebookLogin, googleLogin, logOut} from './auth/auth.js';
-import {savePosting, readPost} from './data/data.js'
+import {savePosting, readPost, savePet} from './data/data.js'
 window.onload = () => {
   checkAuthState((user)=>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -38,7 +38,7 @@ const register = () => {
   const email = document.getElementById("emailRegister").value; 
   const password = document.getElementById("passwordRegister").value; 
   registerUser(email, password);
-  //petData();
+  petData();
    }
    document.getElementById("registerButton").addEventListener("click", register);
 //:::::::::::::::::::::::::::::::::::::::::::LOGIN:::::::::::::::::::::::::::::::::::::::::::::
@@ -56,7 +56,7 @@ const loginUserWithEmailAndPassword = () => {
 
   document.getElementById("signOut").addEventListener("click", logOut);
   //::::::::::::::::::::::::::::::::::::REGISTER DATA::::::::::::::::::::::::::::::::::::::::::::
- /* const petData = () => {
+  const petData = () => {
     let petOwner = document.getElementById("petOwner").value;
     let petName = document.getElementById("petName").value;
     let petType = document.getElementById("petType").value;
@@ -64,7 +64,7 @@ const loginUserWithEmailAndPassword = () => {
     let petAge = document.getElementById("petAge").value;
     let petInformation = document.getElementById("petInformation").value;
     savePet(petOwner, petName, petType, petSex, petAge, petInformation);
-  }*/
+ }
   //::::::::::::::::::::::::::::::::::::::POST::::::::::::::::::::::::::::::::::::::::::::::::
   const posting = () => {
     let postText = document.getElementById("postText").value;
@@ -79,9 +79,9 @@ const loginUserWithEmailAndPassword = () => {
     document.getElementById("postear").innerHTML = 
     `
     <div class="postBox">
-      <h4>Usuario: ${post.val().user}</h4>
+      <h4><b>Usuario:</b>${post.val().user}</h4>
       <div id="postBox">
-        <p>${post.val().posting}</p>
+        <p><b>Mensaje:</b>${post.val().posting}</p>
       </div>
     </div>
     `

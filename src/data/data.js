@@ -1,4 +1,4 @@
-/*export const savePet = (petOwner, petName, petType, petSex, petAge, petInformation) => {
+export const savePet = (petOwner, petName, petType, petSex, petAge, petInformation) => {
   const newPetKey = firebase.database().ref('pets/').child('profile').push().key;
   firebase.database().ref(`pets/${newPetKey}`).set({
     Owner: petOwner,
@@ -8,7 +8,7 @@
     Age: petAge,
     Information: petInformation
   });
-}*/
+}
 
 export const savePosting = (postText, userName) => {
   const newPostKey = firebase.database().ref('post/').child('post').push().key;
