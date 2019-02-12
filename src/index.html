@@ -28,8 +28,25 @@
   <main id="root">
     <div class="container">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-5">
+                <div class="imageBack">  
+                    <img src="/src/img/mascotas.jpg">            
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="welcomeText">
+                    <h1>Bienvenidos a SocialPET</h1>
+                    <div class="texto">
+                        <div class="row">
+                            <div class="col-6">
+                                    <p>SocialPet es mucho más que una red social para mascotas. Es todo un universo en torno al mundo de los perros, gatos, pájaros, hamsters, etc. <b>¡Ellos son lo primero!</b></p>
+                            </div>
+                            <div class="col-6">
+                                    <p>Además podrás encontrar <b>empresas y servicios profesionales</b> del sector de los animales de compañía, ayudar a otros animales que lo están pasando mal y mucho más.</p>
+                            </div>
+                        </div> 
+                    </div>                   
+                </div>
                 <div class="card">
                     <div class="title">
                         <h1>Social PET</h1>
@@ -79,9 +96,7 @@
                                <div class="col-1"></div>
                                <div id="pets" class="pets">
                                     <h2>Registro de la Mascota</h2>
-                                    <hr>  <class="col-6">
-                                        <i class="material-icons">thumb_up</i>
-                                      </div>
+                                    <hr>  
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="text-align: left">Nombre de la Mascota: </p>
@@ -115,8 +130,19 @@
                                         <div class="col-12">
                                             <p style="text-align: left">Dato importante sobre tu mascota:</p>
                                             <textarea id="petInformation"></textarea>
+                                            <a href="#">¿Quieres agregar otra mascota?</a>
+                                            <h6 class="alerta" id="completeAlert2">Por favor complete el formulario</h6>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button id="backButton" class="btn">Volver</button>                                   
+                                        </div>
+                                        <div class="col-6">
+                                            <button id="registerButton" class="btn">Registrar</button>
+                                        </div>
+                                    </div>
+                                    
                                </div>
                             </div>
                         </div>
@@ -143,7 +169,6 @@
                 <div class="col-1"></div>
                 <div class="col-3">
                     <div class="aside">
-                        <li><a href="#">Amigos</a>
                         <li><a href="#">Veterinarios</a>
                         <ul> <!--Abro opciones de veterinarios-->
                         <li><a href="#">A Domicilio</a>
@@ -205,7 +230,7 @@
                                         ¿Quieres hacer una Publicación?
                                     </p>
                                     <textarea id="postName" class="postTextName" placeholder="Escribe tu nombre"></textarea>
-                                    <textarea id="postText" class="postText" placeholder="Escribe aquí lo que desees publicar..."></textarea>
+                                    <textarea id="postText" class="postText" placeholder="Escribe aquí lo que desees publicar..." maxlength="110"></textarea>
                                     <select class="btn">                    
                                         <option value="public">Público</option>
                                         <option value="private">Privado</option>
@@ -236,6 +261,7 @@
 <script src="validate.js"></script>
 <script src="responsive.js"></script>
 <script src="auth/auth.js" type="module"></script>
+
 </body>
 
 </html>

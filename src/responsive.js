@@ -6,10 +6,12 @@ function myFunction() {
       x.className = "topnav";
     }
   }
+  //::::::::::::::::::::::::::::::::::::::modal::::::::::::::::::::::::::::::::::::::::::::::::::
   let modal = document.getElementById("mimodal");
   let flex = document.getElementById("flex");
   let openModal = document.getElementById("register");
   //let closeModal = document.getElementById("close");
+  
    
   openModal.addEventListener("click", () =>{
   modal.style.display = "block";

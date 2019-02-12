@@ -8,7 +8,7 @@ let confirmPassword = document.getElementById("confirmPassword");
 let completeForm = document.getElementById("completeAlert");
 let email = document.getElementById("emailRegister");
 let petOwner = document.getElementById("petOwner");
-
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 nextButton.addEventListener("click", () =>{
 if( password.value !== confirmPassword.value){
 passwordAlert.style.display="block";
@@ -20,9 +20,14 @@ completeForm.style.display="none";
   passwordAlert.style.display="none";
 }
 else{
-pets.style.display = "block";
-owner.style.display = "none";
-nextButton.style.display = "none";
-registerButton.style.display = "block";
-}
+  pets.style.display = "block";
+  owner.style.display = "none";
+  }
+})
+
+let backButton = document.getElementById("backButton");
+
+backButton.addEventListener("click", () =>{
+  pets.style.display = "none";
+  owner.style.display = "block";
 })
