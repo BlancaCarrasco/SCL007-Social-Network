@@ -78,7 +78,10 @@
                                         </div>
                                <div class="col-1"></div>
                                <div id="pets" class="pets">
-                                    <h1>Registro de la Mascota</h1>
+                                    <h2>Registro de la Mascota</h2>
+                                    <hr>  <class="col-6">
+                                        <i class="material-icons">thumb_up</i>
+                                      </div>
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="text-align: left">Nombre de la Mascota: </p>
@@ -118,10 +121,6 @@
                             </div>
                         </div>
                         </div>
-                        <div class="footer">
-                                <button id="next" class="btn">Siguiente</button>
-                             <button id="registerButton" class="register2">Registrar</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -130,7 +129,7 @@
 </main>
 <section>
     <div id="logIn" class="logIn">
-        <button class="btn" id="signOut">Cerrar Sesion</button>
+        <button class="btncheckout" id="signOut">Cerrar Sesión</button>
         <div class="container">
             <div class="row">
                 <div class="col-1"></div>
@@ -140,15 +139,62 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row menu">
                 <div class="col-1"></div>
                 <div class="col-3">
                     <div class="aside">
-                        <a href="#">Amigos</a>
-                        <a href="#">Veterinarios</a>
-                        <a href="#">Paseadores Caninos</a>
-                        <a href="#">Peluquerías para Mascotas</a>
-                        <a href="#">Eventos para mascotas</a>
+                        <li><a href="#">Amigos</a>
+                        <li><a href="#">Veterinarios</a>
+                        <ul> <!--Abro opciones de veterinarios-->
+                        <li><a href="#">A Domicilio</a>
+                        <ul><!--Abro opciones de a domicilio-->
+                        <li><a target="_blank" href="https://www.modovet.com/dinamicanimal">Dinamicanimal</a></li>
+                        <li><a target="_blank" href="http://www.veterinarioaldomicilio.cl/servicios">Dr Eduardo Hidalgo Moreno</a></li>
+                        <li><a target="_blank" href="http://www.veterinariadomicilio.cl/precios-de-la-consulta-veterinaria-a-domicilio-santiago/">Dr a Domicilio</a></li>
+                       </ul><!--cierro opciones de a domicilio-->
+                       <li><a  href="#">Locales</a>
+                        <ul><!--Abro opciones de a locales-->
+                        <li><a target="_blank" href="http://www.hvs.cl/">Hospital Veterinario de Santiago</a></li>
+                        <li><a target="_blank" href="https://www.barkibu.com/es-cl/veterinarios/german-leon-7307">German Leon</a></li>
+                        <li><a target="_blank" href="https://www.barkibu.com/es-cl/veterinarios/claudia-hevia-cortes-14917">Claudia Hevia Cortés</a></li>
+                        </ul>
+                       </li><!--cierro opciones de a locales-->
+                        </li>
+                        </ul>
+                        </li><!--Cierro opciones de veterinarios-->
+                       
+                        <li><a href="#">Paseadores Caninos y Felinos</a><!--Abro Paseadores-->
+                            <ul>
+                                <li><a target="_blank" href="http://www.caninetrek.com/">Caninetrek</a></li>
+                                <li><a target="_blank" href="http://duko.cl/paseos/?gclid=CjwKCAiA7vTiBRAqEiwA4NTO60VK2wMpLzVffV9x_Pm2upLF47b4oAN4Cm6yE8XobYesUM6Mp7gGgxoCrIQQAvD_BwE">Duko</a></li>
+                                <li><a target="_blank" href="https://www.paseame.cl/">Paseame</a></li>
+                               </ul>
+                        </li><!--cierro opciones Paseadores-->
+                        <li><a href="#">Peluquería para Mascotas</a><!--Abro opciones de Peluquerías-->
+                            <ul> 
+                            <li><a href="#">A domicilio</a>
+                            <ul><!--Abro opciones de a domicilio-->
+                            <li><a target="_blank" href="http://www.mascotasalamoda.cl/">Mascotas a la moda</a></li>
+                            <li><a target="_blank" href="http://www.veterinariacafati.cl/index.php/1-peluqueria-canina-y-felina-banos-sanitarios-peinados-y-estetica-mascotas">Dr. Cafati</a></li>
+                            <li><a target="_blank" href="https://www.centralvet.cl/content/30-peluqueria-canina?gclid=CjwKCAiA7vTiBRAqEiwA4NTO63FvZA-2GtY1Lq1iyAj8SHT9Pj8YhzhVaiZuzAHyPYVvk2oEX9tyaRoCYBQQAvD_BwE">Centralvet</a></li>
+                           </ul><!--cierro opciones de a domicilio-->
+                           <li><a href="#">Locales</a>
+                            <ul><!--Abro opciones de a locales-->
+                            <li><a target="_blank" href="http://www.petsmann.cl/peluqueria/">Pet'sMann</a></li>
+                            <li><a target="_blank" href="http://www.veterinariabonamie.cl/peluqueria-canina-y-felina/">Bon Amie</a></li>
+                            <li><a target="_blank" href="http://www.lavacan.cl/">Lavacan</a></li>
+                            </ul>
+                           </li><!--cierro opciones de a locales-->
+                            </li>
+                            </ul>
+                            </li><!--Cierro opciones de Peluquerías-->
+                            <li><a href="#">Eventos para Mascotas</a><!--Abro eventos-->
+                            <ul>
+                            <li><a target="_blank" href="http://www.espacioriesco.cl/eventos/expo-mascotas-2019/">Expo Mascotas</a></li>
+                            <li><a target="_blank" href="https://bestforpets.cl/blog/expo-mascotas-animales-2015/">Best for Pet's</a></li>
+                            <li><a target="_blank" href="http://kennelclub.cl/eventos/">Kennel</a></li>
+                            </ul>
+                        </li><!--cierro eventos-->
                     </div>
                 </div>
                     <div class="col-7">
@@ -158,11 +204,12 @@
                                     <p>
                                         ¿Quieres hacer una Publicación?
                                     </p>
+                                    <textarea id="postName" class="postTextName" placeholder="Escribe tu nombre"></textarea>
                                     <textarea id="postText" class="postText" placeholder="Escribe aquí lo que desees publicar..."></textarea>
-                                    <select>                    
+                                    <select class="btn">                    
                                         <option value="public">Público</option>
                                         <option value="private">Privado</option>
-                                    </select>                        
+                                    </select>
                                     <button id="postBtn" class="btn">Publicar</button>
                                     
                                 </div>
