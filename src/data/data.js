@@ -27,9 +27,10 @@ export const readPost = (onPostChange) => {
   });
 
   export const deletePost = (ruta) => {
+    const deletePostKey = firebase.database().ref('post/').child('post').key;
     let mensaje = confirm ("desea eliminar este mensaje");
     if (mensaje === true){
-      firebase.database().ref(`post/posting/user/${newPostKey}`).remove();
+      firebase.database().ref("post/"+IDpost).remove();
       location.reload();
     }else{
       return null;
