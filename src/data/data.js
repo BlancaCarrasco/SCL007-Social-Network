@@ -22,4 +22,13 @@ export const readPost = (onPostChange) => {
   postRef.on('child_added', (post)=> {
     onPostChange(post);
   });
+
+  export const deletePost = (ruta) => {
+    let mensaje = confirm ("desea eliminar este mensaje");
+    if (mensaje === true){
+      firebase.database().ref()
+    }
+  }
+
+
 };

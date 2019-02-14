@@ -34,24 +34,14 @@ window.onload = () => {
    }); 
 }
 //:::::::::::::::::::::::::::::::::::REGISTER:::::::::::::::::::::::::::::::::::::::::::::::::::
-   document.getElementById("registerButton").addEventListener("click", () =>{
-      let petName = document.getElementById("petName").value;
-      let petType = document.getElementById("petType").value;
-      let petSex = document.getElementById("petSex").value;
-      let petAge = document.getElementById("petAge").value;
-      let petInformation = document.getElementById("petInformation").value;
-      let completeForm2 = document.getElementById("completeAlert2");
-      
-      if (petName === "" || petType === "" || petSex === "" || petAge === "" || petInformation === ""){
-        completeForm2.style.display= "block";
-      }
-      else {
-      const email = document.getElementById("emailRegister").value; 
-      const password = document.getElementById("passwordRegister").value; 
-      registerUser(email, password);
-      petData();
-     }
-   });
+const register = () => {
+ 
+  const email = document.getElementById("emailRegister").value; 
+  const password = document.getElementById("passwordRegister").value; 
+  registerUser(email, password);
+  //petData();
+   }
+   document.getElementById("registerButton").addEventListener("click", register);
 //:::::::::::::::::::::::::::::::::::::::::::LOGIN:::::::::::::::::::::::::::::::::::::::::::::
 
 const loginUserWithEmailAndPassword = () => {
@@ -96,15 +86,18 @@ const loginUserWithEmailAndPassword = () => {
       <div class="postBox">
         <h4><b>Usuario:</b> ${post.val().user}</h4><br>
         <div id="postBox">
-          <p><b>Mensaje:</b></p><br/>
+          <p><b>Mensaje:</b></p>
           <p class="textmessage">${post.val().posting}</p>
+          
         </div>
         <div class="row">
           <div class="col-6">
-            <i class="material-icons iconos">thumb_up</i>
+            <i class="material-icons">thumb_up</i>
           </div>
           <div class="col-6">
-            <i class="material-icons iconos2">comment</i>
+            <i class="material-icons">comment</i>
+            <i class="material-icons"></i>
+            <button type= "button" id= "delete${post.key}" class= "eleminar" >Eliminar</button>
           </div>
         </div>
       </div>
@@ -113,6 +106,10 @@ const loginUserWithEmailAndPassword = () => {
     `
     + document.getElementById("postear").innerHTML
     )  
+    let buttonBox= document.getElementsByClassName("deletepost");
+    for (i=0; i<eletepost.length; i++){
+      buttonBox[i].addEventListener("click",deletepost);
+    }
   }
 
 
