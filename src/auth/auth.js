@@ -14,7 +14,7 @@ export const facebookLogin = () => {
   export const checkAuthState = (callback) => {
     firebase.auth().onAuthStateChanged((user)=>{
       if(user){
-        console.log("Hay un usuario");
+        console.log("Hay un usuario > "+JSON.stringify(user));
         callback(user);
       }else{
         console.log("No está logueado");
@@ -47,7 +47,7 @@ export const loginUser = (emailFromUser, passwordFromUser) => {
           document.getElementById("emptyAlert").style.display= "block";
           document.getElementById("emailAlert").style.display= "none";
         }else{
-          document.getElementById("emailAlert").style.display= "bloc  k";
+          document.getElementById("emailAlert").style.display= "block";
           document.getElementById("emptyAlert").style.display= "none";
         }
       });

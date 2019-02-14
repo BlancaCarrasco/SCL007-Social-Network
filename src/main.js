@@ -32,29 +32,44 @@ window.onload = () => {
       }
     });
    }); 
-}
-//:::::::::::::::::::::::::::::::::::REGISTER:::::::::::::::::::::::::::::::::::::::::::::::::::
-const register = () => {
- 
-  const email = document.getElementById("emailRegister").value; 
-  const password = document.getElementById("passwordRegister").value; 
-  registerUser(email, password);
-  //petData();
-   }
-   document.getElementById("registerButton").addEventListener("click", register);
+  }
+  //:::::::::::::::::::::::::::::::::::REGISTER:::::::::::::::::::::::::::::::::::::::::::::::::::
+   document.getElementById("registerButton").addEventListener("click", () =>{
+     //Validacion para el formulario de registro
+      let petName = document.getElementById("petName").value;
+      let petType = document.getElementById("petType").value;
+      let petSex = document.getElementById("petSex").value;
+      let petAge = document.getElementById("petAge").value;
+      let petInformation = document.getElementById("petInformation").value;
+      let completeForm2 = document.getElementById("completeAlert2");
+
+      if (petName === "" || petType === "" || petSex === "" || petAge === "" || petInformation === ""){
+        completeForm2.style.display= "block";
+      }
+      else {
+      const email = document.getElementById("emailRegister").value; 
+      const password = document.getElementById("passwordRegister").value; 
+      registerUser(email, password);
+      petData();
+     }
+   });
 //:::::::::::::::::::::::::::::::::::::::::::LOGIN:::::::::::::::::::::::::::::::::::::::::::::
 
-const loginUserWithEmailAndPassword = () => {
+  const loginUserWithEmailAndPassword = () => {
     const emailFromUser = emailSignIn.value;
     const passwordFromUser = passwordSignIn.value;
     loginUser(emailFromUser, passwordFromUser);
   };
+  //boton del login
   document.getElementById("signIn").addEventListener("click", loginUserWithEmailAndPassword);
 
+  //boton de facebook
   document.getElementById("facebook").addEventListener("click", facebookLogin);
-
+  
+  //boton de google
   document.getElementById("google").addEventListener("click", googleLogin);
 
+  //boton de cerrar sesión
   document.getElementById("signOut").addEventListener("click", logOut);
   //::::::::::::::::::::::::::::::::::::REGISTER DATA::::::::::::::::::::::::::::::::::::::::::::
  /* const petData = () => {
@@ -68,50 +83,99 @@ const loginUserWithEmailAndPassword = () => {
   }*/
   //::::::::::::::::::::::::::::::::::::::POST::::::::::::::::::::::::::::::::::::::::::::::::
   const posting = () => {
+    let postEmpty = document.getElementById("postAlert");
     let postText = document.getElementById("postText").value;
-    let userName = document.getElementById("postName").value;
-    savePosting(postText, userName);
+    if(postText === ""){
+      postEmpty.style.display= "block";
+    }
+    else {
+      postEmpty.style.display= "none";
+      let postText = document.getElementById("postText").value;
+      let userName = document.getElementById("postName").value;
+      savePosting(postText, userName);
+    }
   } 
   document.getElementById("postBtn").addEventListener("click", posting);
+  //ID UNICA
+  /*let createID = (function(){
+    let map = {}
+    return function(prefix) {
+      prefix = prefix || 'autoSocial';
+      map[prefix] = map[prefix] || 0;
+      let id = prefix + '-' + map[prefix]++;
+      if (document.getElementById(id)){
+        return createID(prefix);
+      }
+      return id;
+    }
+  })()*/
+  //CREA EL POST
+
   let inExec = false;
   const readPostFromDatabase = () => {
+    
     if(inExec){
       return;
     }
     inExec = true;
-    readPost((post)=>
+   // document.getElementById("postear").innerHTML = "";
+    readPost((post)=>{
+    
     document.getElementById("postear").innerHTML = 
     `
     <div class="container"> 
       <div class="postBox">
-        <h4><b>Usuario:</b> ${post.val().user}</h4><br>
-        <div id="postBox">
-          <p><b>Mensaje:</b></p>
-          <p class="textmessage">${post.val().posting}</p>
-          
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <i class="material-icons">thumb_up</i>
+          <div class="postBox-header">
+            <div class="paw">
+              <i class="material-icons">pets</i>
+            </div>
+            <div class="titlePost">
+                <h3>${post.val().user}</h3>
+            </div>
+            </div>                
+          <div id="postBox" class="postBox-body">
+              <p><b>Mensaje:</b></p>
+              <div class="message">
+                  <p class="textmessage">${post.val().posting}</p>
+              </div>                
           </div>
-          <div class="col-6">
-            <i class="material-icons">comment</i>
-            <i class="material-icons"></i>
-            <button type= "button" id= "delete${post.key}" class= "eleminar" >Eliminar</button>
+          <div class="iconos">
+              <div class="edit">
+                <i class="material-icons">edit</i>
+              </div>
+              <div class="delete">
+                <a id="postDelete${post.key}" class="deleteIcon"><i class="material-icons">delete</i></a>
+              </div>
+              <div class="likes">
+                  <i class="material-icons">thumb_up</i>
+              </div>
+              <div class="comment">
+                  <i class="material-icons">mode_comment</i>
+              </div>
           </div>
-        </div>
       </div>
-      <hr>
-    </div>
+    <hr class="barPost">
+  </div>
     `
-    + document.getElementById("postear").innerHTML
-    )  
-    let buttonBox= document.getElementsByClassName("deletepost");
-    for (i=0; i<eletepost.length; i++){
-      buttonBox[i].addEventListener("click",deletepost);
+    + document.getElementById("postear").innerHTML; 
+    let deletePost = document.getElementsByClassName("deleteIcon");
+    for (let i = 0; i< deletePost.length; i++){
+      deletePost[i].addEventListener("click", deletingPost);
     }
+    })
   }
-
+  //:::::::::::::::::::::::::::::::::::::::::::::menu::::::::::::::::::::::::::::::::::::::::::::::.
+const deletingPost = (post) =>{
+let confirmation = confirm("¿Desea eliminar esta publicación?");
+if (confirmation){
+  const IDpost = post.currentTarget.getAttribute("id").slice(10);
+  console.log(IDpost);
+  firebase.database().ref("post/"+IDpost).remove();
+  readPostFromDatabase();
+}else{
+  readPostFromDatabase();
+}
+}
 
 
 
