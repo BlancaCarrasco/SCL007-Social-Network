@@ -177,7 +177,17 @@ const deletingPost = (post) =>{
   }
 }
 
-
+// const editPost = (post) =>{
+//   let confirmation = confirm("¿Desea editar esta publicación?");
+//   if (confirmation){
+//     const IDpost = post.currentTarget.getAttribute("id").slice(10);
+//     console.log(IDpost);
+//     firebase.database().ref("post/"+IDpost). replace();
+//     readPostFromDatabase();
+//   }else{
+//     readPostFromDatabase();
+//   }
+// }
 
 
 
