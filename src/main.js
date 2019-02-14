@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 let database = firebase.database();
 })
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-import {checkAuthState, registerUser, loginUser, facebookLogin, googleLogin, logOut,deletePost } from './auth/auth.js';
+import {checkAuthState, registerUser, loginUser, facebookLogin, googleLogin, logOut } from './auth/auth.js';
 import {savePosting, readPost} from './data/data.js'
 window.onload = () => {
   checkAuthState((user)=>{
