@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 let database = firebase.database();
 })
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-import {checkAuthState, registerUser, loginUser, facebookLogin, googleLogin, logOut} from './auth/auth.js';
+import {checkAuthState, registerUser, loginUser, facebookLogin, googleLogin, logOut,deletePost } from './auth/auth.js';
 import {savePosting, readPost} from './data/data.js'
 window.onload = () => {
   checkAuthState((user)=>{
@@ -166,15 +166,15 @@ window.onload = () => {
   }
   //:::::::::::::::::::::::::::::::::::::::::::::menu::::::::::::::::::::::::::::::::::::::::::::::.
 const deletingPost = (post) =>{
-let confirmation = confirm("¿Desea eliminar esta publicación?");
-if (confirmation){
-  const IDpost = post.currentTarget.getAttribute("id").slice(10);
-  console.log(IDpost);
-  firebase.database().ref("post/"+IDpost).remove();
-  readPostFromDatabase();
-}else{
-  readPostFromDatabase();
-}
+  let confirmation = confirm("¿Desea eliminar esta publicación?");
+  if (confirmation){
+    const IDpost = post.currentTarget.getAttribute("id").slice(10);
+    console.log(IDpost);
+    firebase.database().ref("post/"+IDpost).remove();
+    deletePostFromDatabase();
+  }else{
+    deletePostFromDatabase();
+  }
 }
 
 
