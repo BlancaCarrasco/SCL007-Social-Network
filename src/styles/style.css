@@ -348,6 +348,12 @@ body {
         right:3px;
         top: 36px;
       }
+      .postBox-body{
+        width: 100%;
+      }
+      .message{
+        width: 100%;
+      }
       .textmessage{
         width: 100%;
         overflow: auto;
@@ -378,6 +384,9 @@ body {
         display: inline-block;
         width: 24%;
         text-align: center;
+      }
+      .editingBox{
+        display:none;
       }
       .footer{
         height:50%;
